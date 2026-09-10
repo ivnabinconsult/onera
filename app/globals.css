@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+body { font-family: 'Inter', sans-serif; color: #16233A; background: #FAFBFD; }
+h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
+
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.orbit-ring { animation: orbit-spin 40s linear infinite; transform-origin: center; }
+.orbit-ring-slow { animation: orbit-spin 70s linear infinite reverse; transform-origin: center; }
