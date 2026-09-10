@@ -27,10 +27,10 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-white text-sm font-display font-semibold mb-4">Contact</h4>
+            <h4 className="text-white text-sm font-display font-semibold mb-4">Legal</h4>
             <ul className="flex flex-col gap-3 text-sm">
-              <li>aethinna@gmail.com</li>
-              <li>+234 705 532 9861</li>
+              <li><a href="/terms" className="hover:text-white">Terms of Service</a></li>
+              <li><a href="/privacy" className="hover:text-white">Privacy Policy</a></li>
             </ul>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -8,12 +9,20 @@ export default function AboutPage() {
       <Header />
 
       <section className="pt-20 pb-24">
-        <div className="max-w-6xl mx-auto px-8 grid md:grid-cols-2 gap-16 items-center mb-24">
-          <div className="bg-navy rounded-2xl min-h-[320px] p-7 flex flex-col justify-end order-2 md:order-1">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid md:grid-cols-2 gap-16 items-center mb-24">
+          <div className="relative rounded-2xl overflow-hidden min-h-[320px] p-7 flex flex-col justify-end order-2 md:order-1">
+            <Image
+              src="/images/about/team-visual.jpg"
+              alt="On3ra"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover -z-10"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent -z-10"></div>
             <p className="text-white font-display text-xl leading-snug mb-3.5">
               "On3ra is built for founders who are done losing time to copy-pasting between five different tools."
             </p>
-            <p className="text-[#9FB4D8] text-sm">— placeholder testimonial</p>
+            <p className="text-[#DCE7F8] text-sm">— placeholder testimonial</p>
           </div>
           <div className="order-1 md:order-2">
             <h1 className="text-4xl text-navy font-display font-semibold mb-5">Built for teams who are just getting started</h1>
@@ -29,11 +38,11 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center border-t border-line pt-16">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center border-t border-line pt-16">
           {[
             ["Just launched", "Onboarding our first teams"],
             ["14 days", "Free trial, no card needed"],
-            ["2 gateways", "Stripe and Paystack, your choice"],
+            ["Naira & cards", "Pay your way with Paystack"],
             ["24/7", "Support while we grow together"],
           ].map(([num, label]) => (
             <div key={label}>
