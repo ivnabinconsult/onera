@@ -6,10 +6,10 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <section className="pt-20 pb-24">
-        <div className="max-w-6xl mx-auto px-8 grid md:grid-cols-2 gap-16">
+      <section className="pt-14 sm:pt-20 pb-16 sm:pb-24">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid md:grid-cols-2 gap-10 sm:gap-16">
           <div>
-            <h1 className="text-4xl text-navy font-display font-semibold mb-4">Let's talk</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl text-navy font-display font-semibold mb-4">Let's talk</h1>
             <p className="text-slate text-[15.5px] mb-6">
               Have questions about which plan fits your team? Send us a note and we'll get back to you within one business day.
             </p>

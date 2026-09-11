@@ -36,8 +36,8 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-sky px-6">
-      <div className="w-full max-w-md bg-white border border-line rounded-2xl p-9">
+    <div className="min-h-screen flex items-center justify-center bg-sky px-4">
+      <div className="w-full max-w-md bg-white border border-line rounded-2xl p-6 sm:p-9">
         <Link href="/" className="flex justify-center mb-7">
           <Image src="/logo.png" alt="On3ra" width={150} height={45} className="h-9 w-auto" />
         </Link>
@@ -61,7 +61,7 @@ export default function SignupPage() {
                   required
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  className="w-full px-3.5 py-3 border border-line rounded-lg text-sm focus:border-blue outline-none"
+                  className="w-full px-3.5 py-3 border border-line rounded-lg text-base focus:border-blue outline-none"
                 />
               </div>
               <div>
@@ -71,7 +71,7 @@ export default function SignupPage() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-3.5 py-3 border border-line rounded-lg text-sm focus:border-blue outline-none"
+                  className="w-full px-3.5 py-3 border border-line rounded-lg text-base focus:border-blue outline-none"
                 />
               </div>
               <div>
@@ -82,7 +82,7 @@ export default function SignupPage() {
                   minLength={6}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-3.5 py-3 border border-line rounded-lg text-sm focus:border-blue outline-none"
+                  className="w-full px-3.5 py-3 border border-line rounded-lg text-base focus:border-blue outline-none"
                 />
               </div>
 

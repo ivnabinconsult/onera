@@ -7,9 +7,9 @@ export default function TermsPage() {
   return (
     <>
       <Header />
-      <section className="pt-16 pb-24">
+      <section className="pt-12 sm:pt-16 pb-16 sm:pb-24">
         <div className="max-w-3xl mx-auto px-5 sm:px-8">
-          <h1 className="text-3xl md:text-4xl text-navy font-display font-semibold mb-3">Terms of Service</h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl text-navy font-display font-semibold mb-3">Terms of Service</h1>
           <p className="text-slate text-sm mb-10">Last updated: September 2026</p>
 
           <div className="flex flex-col gap-8 text-[15px] text-ink leading-relaxed">

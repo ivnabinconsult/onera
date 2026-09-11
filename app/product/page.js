@@ -35,19 +35,19 @@ export default function ProductPage() {
     <>
       <Header />
 
-      <section className="pt-20 pb-16">
+      <section className="pt-14 sm:pt-20 pb-12 sm:pb-16">
         <div className="max-w-3xl mx-auto px-5 sm:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl text-navy font-display font-semibold mb-5">One workspace, four connected tools</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl text-navy font-display font-semibold mb-4 sm:mb-5">One workspace, four connected tools</h1>
           <p className="text-lg text-slate">
             Every module in On3ra reads and writes to the same data, so a task, a draft, and a chart are never three logins away from each other.
           </p>
         </div>
       </section>
 
-      <section className="pb-24">
+      <section className="pb-16 sm:pb-24">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           {modules.map((m, i) => (
-            <div key={m.title} className={`grid md:grid-cols-2 gap-14 items-center py-14 ${i !== 0 ? "border-t border-line" : ""}`}>
+            <div key={m.title} className={`grid md:grid-cols-2 gap-10 sm:gap-14 items-center py-10 sm:py-14 ${i !== 0 ? "border-t border-line" : ""}`}>
               <div className={i % 2 === 1 ? "md:order-2" : ""}>
                 <h2 className="text-2xl text-navy font-display font-semibold mb-3.5">{m.title}</h2>
                 <p className="text-slate text-[15.5px] mb-4">{m.desc}</p>
@@ -73,7 +73,7 @@ export default function ProductPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-navy text-center">
+      <section className="py-14 sm:py-20 bg-navy text-center">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <h2 className="text-3xl text-white font-display font-semibold mb-3.5">See it running in your own workspace</h2>
           <p className="text-[#C4D5F0] mb-7">Start free for 14 days. No card required.</p>

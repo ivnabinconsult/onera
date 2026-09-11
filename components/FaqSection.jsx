@@ -30,17 +30,17 @@ export default function FaqSection() {
 
   return (
     <section className="py-16">
-      <div className="max-w-2xl mx-auto px-8">
+      <div className="max-w-2xl mx-auto px-5 sm:px-8">
         {faqs.map((item, i) => (
-          <div key={item.q} className="border-b border-line py-5">
+          <div key={item.q} className="border-b border-line">
             <button
               onClick={() => setOpen(open === i ? null : i)}
-              className="w-full flex justify-between items-center text-left font-display font-semibold text-[17px] text-navy"
+              className="w-full flex justify-between items-center text-left font-display font-semibold text-[16px] sm:text-[17px] text-navy py-4"
             >
-              <span>{item.q}</span>
-              <span className={`text-blue text-xl ml-4 flex-shrink-0 transition-transform ${open === i ? "rotate-45" : ""}`}>+</span>
+              <span className="pr-4">{item.q}</span>
+              <span className={`text-blue text-xl ml-2 flex-shrink-0 transition-transform ${open === i ? "rotate-45" : ""}`}>+</span>
             </button>
-            {open === i && <p className="text-slate text-[15px] pt-3">{item.a}</p>}
+            {open === i && <p className="text-slate text-[15px] pb-4 -mt-2">{item.a}</p>}
           </div>
         ))}
       </div>

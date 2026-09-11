@@ -68,31 +68,31 @@ export default function PricingSection() {
 
   return (
     <div>
-      <div className="flex justify-center mb-14">
+      <div className="flex justify-center mb-10 md:mb-14 px-2">
         <div className="inline-flex items-center bg-white border border-line rounded-full p-1">
           <button
             onClick={() => setCycle("monthly")}
-            className={`px-5 py-2 rounded-full text-sm font-semibold transition ${cycle === "monthly" ? "bg-blue text-white" : "text-slate"}`}
+            className={`px-4 sm:px-5 py-2 rounded-full text-[13px] sm:text-sm font-semibold transition whitespace-nowrap ${cycle === "monthly" ? "bg-blue text-white" : "text-slate"}`}
           >
             Monthly
           </button>
           <button
             onClick={() => setCycle("annual")}
-            className={`px-5 py-2 rounded-full text-sm font-semibold transition ${cycle === "annual" ? "bg-blue text-white" : "text-slate"}`}
+            className={`px-4 sm:px-5 py-2 rounded-full text-[13px] sm:text-sm font-semibold transition whitespace-nowrap ${cycle === "annual" ? "bg-blue text-white" : "text-slate"}`}
           >
-            Annual, 2 months free
+            Annual<span className="hidden sm:inline">, 2 months free</span>
           </button>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 items-stretch max-w-5xl mx-auto">
         {plans.map((plan) => {
           const price = plan[cycle];
           const dark = plan.highlight;
           return (
             <div
               key={plan.id}
-              className={`relative rounded-2xl p-8 flex flex-col ${
+              className={`relative rounded-2xl p-6 sm:p-8 flex flex-col ${
                 dark
                   ? "bg-navy text-white md:-translate-y-3 shadow-[0_30px_60px_-20px_rgba(15,42,74,0.5)]"
                   : plan.id === "enterprise"
