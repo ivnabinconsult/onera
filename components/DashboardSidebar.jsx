@@ -9,8 +9,8 @@ import SignOutButton from "./SignOutButton";
 const navItems = [
   { label: "Overview", href: "/dashboard" },
   { label: "Projects", href: "/dashboard/projects" },
+  { label: "Analytics", href: "/dashboard/analytics" },
   { label: "Content", soon: true },
-  { label: "Analytics", soon: true },
   { label: "Sites", soon: true },
 ];
 
