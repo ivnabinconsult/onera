@@ -10,7 +10,7 @@ body { overflow-x: hidden; }
   html { scroll-behavior: auto; }
   * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
 }
-body { font-family: 'Inter', sans-serif; color: #16233A; background: #FAFBFD; }
+body { font-family: 'Inter', sans-serif; color: #111827; background: #FFFFFF; }
 h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
 
 @keyframes orbit-spin {

@@ -73,7 +73,7 @@ export default function ProductPage() {
         </div>
       </section>
 
-      <section className="py-14 sm:py-20 bg-navy text-center">
+      <section className="py-14 sm:py-20 bg-dark text-center">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <h2 className="text-3xl text-white font-display font-semibold mb-3.5">See it running in your own workspace</h2>
           <p className="text-[#C4D5F0] mb-7">Start free for 14 days. No card required.</p>

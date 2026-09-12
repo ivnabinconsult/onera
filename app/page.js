@@ -16,20 +16,20 @@ export default function Home() {
       <Header />
 
       {/* HERO */}
-      <section className="pt-20 pb-24 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-8 grid md:grid-cols-2 gap-16 items-center">
+      <section className="pt-14 md:pt-20 pb-16 md:pb-24 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
           <div>
-            <h1 className="text-5xl leading-[1.08] text-navy font-display font-semibold mb-6 max-w-lg">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl leading-[1.12] text-navy font-display font-semibold mb-5 md:mb-6 max-w-lg">
               Run your whole business from one place
             </h1>
-            <p className="text-lg text-slate max-w-md mb-8">
+            <p className="text-base md:text-lg text-slate max-w-md mb-7 md:mb-8">
               On3ra brings your projects, content, analytics, and website into a single workspace, so a small team can move like a much bigger one.
             </p>
-            <div className="flex gap-3.5 mb-7">
-              <Link href="/signup" className="px-6 py-3.5 rounded-lg font-semibold text-sm bg-blue text-white hover:bg-blueDeep transition">
+            <div className="flex flex-col sm:flex-row gap-3.5 mb-7">
+              <Link href="/signup" className="px-6 py-3.5 rounded-lg font-semibold text-sm bg-blue text-white hover:bg-blueDeep transition text-center">
                 Start free trial
               </Link>
-              <Link href="/product" className="px-6 py-3.5 rounded-lg font-semibold text-sm border border-line text-navy hover:border-blue hover:text-blue transition">
+              <Link href="/product" className="px-6 py-3.5 rounded-lg font-semibold text-sm border border-line text-navy hover:border-blue hover:text-blue transition text-center">
                 See how it works
               </Link>
             </div>
@@ -40,10 +40,10 @@ export default function Home() {
       </section>
 
       {/* MODULES TEASER */}
-      <section className="py-20 border-t border-line">
-        <div className="max-w-6xl mx-auto px-8">
-          <div className="flex items-end justify-between mb-12 gap-6 flex-wrap">
-            <h2 className="text-3xl text-navy font-display font-semibold max-w-md">Four tools, working from the same data</h2>
+      <section className="py-14 md:py-20 border-t border-line">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <div className="flex items-end justify-between mb-10 md:mb-12 gap-6 flex-wrap">
+            <h2 className="text-2xl sm:text-3xl text-navy font-display font-semibold max-w-md">Four tools, working from the same data</h2>
             <Link href="/product" className="text-blue font-semibold text-sm whitespace-nowrap">Explore the product →</Link>
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
@@ -58,9 +58,9 @@ export default function Home() {
       </section>
 
       {/* PRICING TEASER */}
-      <section className="py-20 bg-sky">
-        <div className="max-w-6xl mx-auto px-8 text-center">
-          <h2 className="text-3xl text-navy font-display font-semibold mb-3">Priced for teams just getting started</h2>
+      <section className="py-14 md:py-20 bg-sky">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl text-navy font-display font-semibold mb-3">Priced for teams just getting started</h2>
           <p className="text-slate mb-8 max-w-md mx-auto">Plans start at $9/month. Every plan includes all four modules — no add-ons to unlock.</p>
           <Link href="/pricing" className="inline-block px-7 py-3.5 rounded-lg font-semibold text-sm bg-blue text-white hover:bg-blueDeep transition">
             See plans and pricing
@@ -69,11 +69,11 @@ export default function Home() {
       </section>
 
       {/* CTA BANNER */}
-      <section className="py-20 bg-navy text-center">
-        <div className="max-w-6xl mx-auto px-8">
-          <h2 className="text-3xl text-white font-display font-semibold mb-3.5">Ready to bring your tools into one place?</h2>
+      <section className="py-14 md:py-20 bg-dark text-center">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <h2 className="text-2xl sm:text-3xl text-white font-display font-semibold mb-3.5">Ready to bring your tools into one place?</h2>
           <p className="text-[#C4D5F0] mb-7">Start your free 14-day trial today. No card required.</p>
-          <div className="flex gap-3.5 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3.5 justify-center">
             <Link href="/signup" className="px-6 py-3.5 rounded-lg font-semibold text-sm bg-teal text-navy hover:bg-white transition">
               Start free trial
             </Link>

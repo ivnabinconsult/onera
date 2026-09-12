@@ -12,16 +12,16 @@ function polar(angleDeg, dist, cx = 250, cy = 250) {
 
 export default function OrbitGraphic() {
   return (
-    <div className="relative w-full aspect-square max-w-[520px] mx-auto">
+    <div className="relative w-full aspect-square max-w-[320px] sm:max-w-[420px] md:max-w-[520px] mx-auto">
       <svg viewBox="0 0 500 500" className="w-full h-full" role="img" aria-label="On3ra's four connected modules orbiting a central workspace">
         <defs>
           <linearGradient id="coreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#2BB8C4" />
-            <stop offset="100%" stopColor="#0F2A4A" />
+            <stop offset="0%" stopColor="#60A5FA" />
+            <stop offset="100%" stopColor="#0F172A" />
           </linearGradient>
           <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#2BB8C4" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="#1D5FCC" stopOpacity="0.15" />
+            <stop offset="0%" stopColor="#60A5FA" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#2563EB" stopOpacity="0.15" />
           </linearGradient>
         </defs>
 
@@ -30,14 +30,14 @@ export default function OrbitGraphic() {
           <circle cx="250" cy="250" r="215" fill="none" stroke="url(#ringGrad)" strokeWidth="1.5" strokeDasharray="2 10" />
         </g>
         <g className="orbit-ring" style={{ transformBox: "fill-box" }}>
-          <circle cx="250" cy="250" r="168" fill="none" stroke="#DCE4F0" strokeWidth="1.5" />
+          <circle cx="250" cy="250" r="168" fill="none" stroke="#E2E8F0" strokeWidth="1.5" />
         </g>
 
         {/* connecting lines from core to each node */}
         {nodes.map((n) => {
           const p = polar(n.angle, n.dist);
           return (
-            <line key={n.label} x1="250" y1="250" x2={p.x} y2={p.y} stroke="#DCE4F0" strokeWidth="1.5" />
+            <line key={n.label} x1="250" y1="250" x2={p.x} y2={p.y} stroke="#E2E8F0" strokeWidth="1.5" />
           );
         })}
 
@@ -54,8 +54,8 @@ export default function OrbitGraphic() {
           const p = polar(n.angle, n.dist);
           return (
             <g key={n.label}>
-              <circle cx={p.x} cy={p.y} r="30" fill="white" stroke="#DCE4F0" strokeWidth="1.5" />
-              <circle cx={p.x} cy={p.y} r="6" fill="#1D5FCC" />
+              <circle cx={p.x} cy={p.y} r="30" fill="white" stroke="#E2E8F0" strokeWidth="1.5" />
+              <circle cx={p.x} cy={p.y} r="6" fill="#2563EB" />
             </g>
           );
         })}
