@@ -15,7 +15,7 @@ export default function DashboardNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex flex-row md:flex-col gap-1 text-sm text-[#B9C9E6] flex-1 overflow-x-auto md:overflow-visible">
+    <nav className="flex flex-row md:flex-col gap-1 text-sm text-[#B9C9E6] flex-1 min-w-0 overflow-x-auto md:overflow-visible">
       {navItems.map((item) => {
         const active = item.href && (pathname === item.href || (item.href !== "/dashboard" && pathname.startsWith(item.href)));
 

@@ -125,12 +125,12 @@ export default function ProjectBoardPage() {
       </Link>
       <h1 className="text-2xl font-display font-semibold text-navy mb-6">{project.name}</h1>
 
-      <form onSubmit={handleAddTask} className="flex gap-3 mb-4 max-w-lg">
+      <form onSubmit={handleAddTask} className="flex flex-col sm:flex-row gap-3 mb-4 max-w-lg">
         <input
           value={newTitle}
           onChange={(e) => setNewTitle(e.target.value)}
           placeholder="New task"
-          className="flex-1 px-3.5 py-2.5 border border-line rounded-lg text-base focus:border-blue outline-none bg-white"
+          className="flex-1 min-w-0 px-3.5 py-2.5 border border-line rounded-lg text-base focus:border-blue outline-none bg-white"
         />
         <button type="submit" className="px-5 py-2.5 rounded-lg font-semibold text-sm bg-blue text-white hover:bg-blueDeep transition whitespace-nowrap">
           Add task
@@ -159,13 +159,13 @@ export default function ProjectBoardPage() {
                       <select
                         value={t.status}
                         onChange={(e) => handleMove(t.id, e.target.value)}
-                        className="text-xs border border-line rounded px-2 py-1 bg-white"
+                        className="text-[13px] border border-line rounded px-2 py-1.5 bg-white"
                       >
                         <option value="todo">To do</option>
                         <option value="in_progress">In progress</option>
                         <option value="done">Done</option>
                       </select>
-                      <button onClick={() => handleDeleteTask(t.id)} className="text-xs text-slate hover:text-red-600">
+                      <button onClick={() => handleDeleteTask(t.id)} className="text-[13px] text-slate hover:text-red-600 px-2 py-1.5">
                         Delete
                       </button>
                     </div>

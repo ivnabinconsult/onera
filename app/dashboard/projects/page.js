@@ -107,12 +107,12 @@ export default function ProjectsPage() {
       <h1 className="text-2xl font-display font-semibold text-navy mb-1">Projects</h1>
       <p className="text-slate mb-8">Create a project, then break it into tasks.</p>
 
-      <form onSubmit={handleCreate} className="flex gap-3 mb-4 max-w-lg">
+      <form onSubmit={handleCreate} className="flex flex-col sm:flex-row gap-3 mb-4 max-w-lg">
         <input
           value={newName}
           onChange={(e) => setNewName(e.target.value)}
           placeholder="New project name"
-          className="flex-1 px-3.5 py-2.5 border border-line rounded-lg text-base focus:border-blue outline-none bg-white"
+          className="flex-1 min-w-0 px-3.5 py-2.5 border border-line rounded-lg text-base focus:border-blue outline-none bg-white"
         />
         <button
           type="submit"
@@ -141,11 +141,11 @@ export default function ProjectsPage() {
                 {p.name}
               </Link>
               <p className="text-sm text-slate mb-4">{taskCounts[p.id] || 0} tasks</p>
-              <div className="flex gap-3 mt-auto">
-                <Link href={`/dashboard/projects/${p.id}`} className="text-sm text-blue font-semibold">
+              <div className="flex gap-3 mt-auto items-center">
+                <Link href={`/dashboard/projects/${p.id}`} className="text-sm text-blue font-semibold py-1.5">
                   Open →
                 </Link>
-                <button onClick={() => handleDelete(p.id)} className="text-sm text-slate hover:text-red-600 ml-auto">
+                <button onClick={() => handleDelete(p.id)} className="text-sm text-slate hover:text-red-600 ml-auto py-1.5 px-2">
                   Delete
                 </button>
               </div>
