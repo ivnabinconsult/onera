@@ -15,6 +15,28 @@ export default function SiteForm({ site }) {
   const [status, setStatus] = useState(site?.status || "draft");
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState(null);
+  const [checking, setChecking] = useState(false);
+  const [checkResult, setCheckResult] = useState(null);
+
+  async function handleCheckStatus() {
+    setChecking(true);
+    setCheckResult(null);
+    try {
+      const res = await fetch("/api/sites/check-status", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ siteId: site.id }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Check failed");
+      setCheckResult(data.uptime_status);
+      router.refresh();
+    } catch (err) {
+      setCheckResult(`error: ${err.message}`);
+    } finally {
+      setChecking(false);
+    }
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -128,16 +150,29 @@ export default function SiteForm({ site }) {
           {saving ? "Saving..." : isEditing ? "Save changes" : "Create site"}
         </button>
         {isEditing && (
-          <button
-            type="button"
-            onClick={handleDelete}
-            disabled={saving}
-            className="text-sm font-medium text-red-500 px-4 py-2.5 rounded-lg hover:bg-red-500/10 transition"
-          >
-            Delete
-          </button>
+          <>
+            <button
+              type="button"
+              onClick={handleCheckStatus}
+              disabled={checking}
+              className="text-sm font-medium text-[#2563EB] px-4 py-2.5 rounded-lg hover:bg-[#2563EB]/10 transition disabled:opacity-50"
+            >
+              {checking ? "Checking..." : "Check status"}
+            </button>
+            <button
+              type="button"
+              onClick={handleDelete}
+              disabled={saving}
+              className="text-sm font-medium text-red-500 px-4 py-2.5 rounded-lg hover:bg-red-500/10 transition"
+            >
+              Delete
+            </button>
+          </>
         )}
       </div>
+      {checkResult && (
+        <p className="text-sm text-[#64748B] mt-3">Result: {checkResult}</p>
+      )}
     </form>
   );
 }
