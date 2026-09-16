@@ -9,11 +9,19 @@ export async function POST(request) {
   }
 
   const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return NextResponse.json({ error: "Sign in first" }, { status: 401 });
+  }
 
   const { data: site, error: fetchError } = await supabase
     .from("sites")
     .select("id, deployment_url, domain, subdomain")
     .eq("id", siteId)
+    .eq("user_id", user.id)
     .single();
 
   if (fetchError || !site) {
@@ -42,7 +50,8 @@ export async function POST(request) {
   const { error: updateError } = await supabase
     .from("sites")
     .update({ uptime_status: uptimeStatus, last_checked_at: new Date().toISOString() })
-    .eq("id", siteId);
+    .eq("id", siteId)
+    .eq("user_id", user.id);
 
   if (updateError) {
     return NextResponse.json({ error: updateError.message }, { status: 500 });

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
-import SiteBuilder from "./SiteBuilder";
+import SiteBuilder from "../../builder/SiteBuilder";
 
 export default async function SiteBuilderPage({ params }) {
   const supabase = createClient();

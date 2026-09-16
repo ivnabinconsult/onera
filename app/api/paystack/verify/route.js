@@ -2,14 +2,23 @@ import { NextResponse } from "next/server";
 import { paystackVerifyTransaction } from "@/lib/paystack";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 
-const supabaseAdmin = createServiceClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
-);
+function getSupabaseAdmin() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!url || !serviceRoleKey) return null;
+
+  return createServiceClient(url, serviceRoleKey);
+}
 
 // Called from the dashboard after a user is redirected back from Paystack,
 // as a backup to the webhook (in case the webhook hasn't fired yet).
 export async function POST(request) {
+  const supabaseAdmin = getSupabaseAdmin();
+  if (!supabaseAdmin) {
+    return NextResponse.json({ error: "Billing isn't configured yet." }, { status: 500 });
+  }
+
   const { reference } = await request.json();
   const result = await paystackVerifyTransaction(reference);
 
