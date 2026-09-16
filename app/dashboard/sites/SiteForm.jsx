@@ -25,6 +25,12 @@ export default function SiteForm({ site }) {
       data: { user },
     } = await supabase.auth.getUser();
 
+    if (!user) {
+      setError("Session not found — please refresh and try again.");
+      setSaving(false);
+      return;
+    }
+
     const payload = { name, domain, subdomain, status, user_id: user.id };
 
     const { error: dbError } = isEditing
