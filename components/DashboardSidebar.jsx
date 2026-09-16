@@ -11,7 +11,7 @@ const navItems = [
   { label: "Projects", href: "/dashboard/projects" },
   { label: "Content", href: "/dashboard/content" },
   { label: "Analytics", href: "/dashboard/analytics" },
-  { label: "Sites", soon: true },
+  { label: "Sites", href: "/dashboard/sites" },
 ];
 
 export default function DashboardSidebar({ userEmail }) {
