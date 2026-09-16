@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import SignOutButton from "./SignOutButton";
 
 const navItems = [
+  { label: "Home", href: "/" },
   { label: "Overview", href: "/dashboard" },
   { label: "Projects", href: "/dashboard/projects" },
   { label: "Content", href: "/dashboard/content" },
