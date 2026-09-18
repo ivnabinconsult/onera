@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 
-// Calls the Anthropic API server-side only — the API key never reaches the browser.
+// Calls the Groq API server-side only — the API key never reaches the browser.
 export async function POST(request) {
   const supabase = createClient();
   const { data: { user } } = await supabase.auth.getUser();
@@ -15,23 +15,22 @@ export async function POST(request) {
     return NextResponse.json({ error: "Please enter a topic or prompt" }, { status: 400 });
   }
 
-  if (!process.env.ANTHROPIC_API_KEY) {
+  if (!process.env.GROQ_API_KEY) {
     return NextResponse.json(
-      { error: "AI writer isn't configured yet — missing ANTHROPIC_API_KEY." },
+      { error: "AI writer isn't configured yet — missing GROQ_API_KEY." },
       { status: 500 }
     );
   }
 
   try {
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
+    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": process.env.ANTHROPIC_API_KEY,
-        "anthropic-version": "2023-06-01",
+        "Authorization": `Bearer ${process.env.GROQ_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "claude-sonnet-5",
+        model: "llama-3.3-70b-versatile",
         max_tokens: 1024,
         messages: [
           {
@@ -51,10 +50,7 @@ export async function POST(request) {
       );
     }
 
-    const text = data.content
-      ?.filter((block) => block.type === "text")
-      .map((block) => block.text)
-      .join("\n") || "";
+    const text = data.choices?.[0]?.message?.content || "";
 
     return NextResponse.json({ text });
   } catch (err) {
